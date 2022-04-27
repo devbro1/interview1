@@ -23,9 +23,9 @@ jobs:
         run: ssh-keyscan -H ${{ secrets.SSH_HOST_NAME }} >> ~/.ssh/known_hosts
 
       - name: pull code into server
-        run: ssh ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST_NAME }} 'cd interview1 | git stash | git pull origin master'
+        run: ssh ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST_NAME }} 'cd interview1 ; git stash ; git pull origin master'
 
       - name: run axillary commands
-        run: ssh ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST_NAME }} 'cd interview1 | composer i | php artisan migrate'
+        run: ssh ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST_NAME }} 'cd interview1 ; composer i ; php artisan migrate'
 
 
